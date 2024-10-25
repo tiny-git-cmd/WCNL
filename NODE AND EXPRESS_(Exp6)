@@ -1,0 +1,64 @@
+1) Callback backing mode
+( make a inputfile1.txt with anythimg written in it)
+(make a file named blocking.js and insert the following code in it)
+const fs = require("fs");
+const filedata = fs.readFileSync("inputfile1.txt");
+console.log(filedata.toString());
+console.log("End of Program execution");
+
+TO RUN IN TERMINAL: 
+node blocking.js
+
+
+2) NON BLOCKING MODE
+(make a file named nonblocking.js and then paste the code in it)
+const fs = require("fs");
+fs.readFile("inputfile1.txt", (error, filedata) => {
+  if (error) return console.error(error);
+  console.log(filedata.toString());
+});
+console.log("End of Program execution");
+
+RUN: node nonblocking.js
+
+3) EVENT LOOP EXAMPLE(eventloop.js)
+const events = require("events");
+const eventEmitter = new events.EventEmitter();
+
+// Create an event handler
+const connectHandler = () => {
+  console.log("Connection successful.");
+  eventEmitter.emit("data_received");
+};
+
+// Bind the connection event with the handler
+eventEmitter.on("connection", connectHandler);
+
+// Bind the data_received event with an anonymous function
+eventEmitter.on("data_received", () => {
+  console.log("Data received successfully.");
+});
+
+// Fire the connection event
+eventEmitter.emit("connection");
+console.log("Program Ended.");
+
+
+5) CREATING AN EXPRESS APPLICATIONl
+STEP 1: npm install express
+STEP 2: CREATE A FILE NAMED app.js and add this code
+const express = require("express");
+const app = express();
+
+app.get("/", (req, res) => {
+  res.send("Hello World");
+});
+
+const server = app.listen(8081, () => {
+  const host = server.address().address;
+  const port = server.address().port;
+  console.log("Example app listening at http://%s:%s", host, port);
+});
+
+
+RUN: node app.js

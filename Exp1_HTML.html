@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+</head>
+<body>
+    <header>
+        <h1>Page Heading</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article>
+            <h2>Article Heading</h2>
+            <p>This is the article.</p>
+            <section>
+                <h3>Section Heading</h3>
+                <p>This is the section.</p>
+            </section>
+        </article>
+
+        <!-- Adding Form Section -->
+        <section>
+            <h3>Contact Us</h3>
+            <form action="/submit" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br><br>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br><br>
+
+                <label for="message">Message:</label><br>
+                <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
+
+                <button type="submit">Submit</button>
+                <button type="reset">Reset</button>
+            </form>
+        </section>
+
+        <aside>
+            <h3>Related</h3>
+            <ul>
+                <li><a href="#">Related link 1</a></li>
+                <li><a href="#">Related link 2</a></li>
+                <li><a href="#">Related link 3</a></li>
+            </ul>
+        </aside>
+    </main>
+    <footer>
+        <p>Footer</p>
+    </footer>
+</body>
+</html>

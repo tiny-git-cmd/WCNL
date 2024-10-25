@@ -1,0 +1,147 @@
+STEP 1: npx create-react-app react-demo
+cd react-demo
+STEP 2: UPDATE THESE CODES
+
+1) APP.JS
+// src/App.js
+import React from 'react';
+import './App.css';
+import Counter from './components/Counter';
+import ItemList from './components/ItemList';
+import NumberValidation from './components/NumberValidation';
+
+function App() {
+  return (
+    <div className="App">
+      <h1>ReactJS Functionalities Demo</h1>
+      <Counter />
+      <ItemList />
+      <NumberValidation />
+    </div>
+  );
+}
+
+export default App;
+
+2) APP.CSS
+/* src/App.css */
+.App {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+  background-color: #f4f4f9;
+}
+h2 {
+  color: #333;
+}
+button {
+  margin: 5px;
+  padding: 8px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+button:hover {
+  background-color: #0056b3;
+}
+
+
+STEP 3: CREATE A COMPONENTS FOLDER IN SRC AND ADD THESE FILES
+
+1) Counter.js
+// src/components/Counter.js
+import React, { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  const increment = () => setCount(count + 1);
+  const decrement = () => setCount(count - 1);
+
+  return (
+    <div>
+      <h2>Counter</h2>
+      <p>Current Count: {count}</p>
+      <button onClick={increment}>Increment</button>
+      <button onClick={decrement}>Decrement</button>
+    </div>
+  );
+}
+
+export default Counter;
+
+2) ItemList.js
+// src/components/ItemList.js
+import React, { useState } from 'react';
+
+function ItemList() {
+  const [items, setItems] = useState(['Apple', 'Banana', 'Cherry']);
+
+  return (
+    <div>
+      <h2>Item List</h2>
+      <ul>
+        {items.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default ItemList;
+
+3) NumberValidation.js
+// src/components/NumberValidation.js
+import React, { useState } from 'react';
+
+function NumberValidation() {
+  const [number, setNumber] = useState('');
+  const [message, setMessage] = useState('');
+
+  const validateNumber = () => {
+    const num = parseInt(number);
+    if (num >= 1 && num <= 10) {
+      setMessage('Input OK');
+    } else {
+      setMessage('Input not valid');
+    }
+  };
+
+  return (
+    <div>
+      <h2>Number Validation</h2>
+      <input
+        type="number"
+        value={number}
+        onChange={(e) => setNumber(e.target.value)}
+        placeholder="Enter a number"
+      />
+      <button onClick={validateNumber}>Validate</button>
+      <p>{message}</p>
+    </div>
+  );
+}
+
+export default NumberValidation;
+
+STEP 4: DELETE LOGO.SVG,APP.TEST.JS, SETUPTEST,JS, REPORTWEBVITALS.JS
+
+STEP 5: CHANGE index.js
+// src/index.js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+
+
+STEP 6: npm start
